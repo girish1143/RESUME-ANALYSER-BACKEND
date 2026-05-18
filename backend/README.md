@@ -1,0 +1,80 @@
+﻿# Resume Analyzer
+
+A full-stack AI resume analyzer built with:
+
+- FastAPI backend
+- LangChain + Gemini LLM calls
+- NLP skill extraction and resume scoring
+- React + Vite frontend
+
+The app accepts a PDF, DOCX, or TXT resume, compares it with an optional job description, and returns a structured analysis with score, strengths, gaps, extracted skills, project scores, and improvement suggestions.
+
+## Project Structure
+
+```text
+resume-analyzer/
+  backend/
+    app/
+      main.py
+      services/
+        analyzer.py
+        llm.py
+        nlp.py
+        parser.py
+      schemas.py
+    requirements.txt
+    .env.example
+  frontend/
+    src/
+      App.jsx
+      main.jsx
+      styles.css
+    package.json
+    vite.config.js
+  README.md
+```
+
+## Setup
+
+### Backend
+
+```bash
+cd backend
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+copy .env.example .env
+```
+
+Add your Gemini API key to `backend/.env`:
+
+```env
+GEMINI_API_KEY=your_key_here
+GEMINI_MODEL=gemini-2.5-flash
+```
+
+Run the backend:
+
+```bash
+uvicorn app.main:app --reload --port 8001
+```
+
+The API will run at `http://127.0.0.1:8001`.
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The UI will run at `http://127.0.0.1:5173`.
+
+## Notes
+
+- If no `GEMINI_API_KEY` is configured, the backend still works using a local rule-based NLP fallback.
+- The LLM path uses LangChain and returns normalized JSON for the frontend.
+- Supported uploads: `.pdf`, `.docx`, `.txt`.
+
+# RESUME-ANALYSER-BACKEND
