@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume Analyser</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Resume Analyser</h1>
+      <form id="resume-form">
+        <label>Upload PDF/DOCX or paste text</label>
+        <input type="file" id="file" name="file" />
+        <textarea id="text" placeholder="Or paste resume text here..."></textarea>
+        <button type="submit">Analyze</button>
+      </form>
+
+      <section id="result">
+        <h2>Analysis</h2>
+        <pre id="output">No results yet.</pre>
+      </section>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
